@@ -8,7 +8,7 @@ function App() {
       const { data }: any = await axios.get(
         'https://testnets-api.opensea.io/api/v1/assets?asset_contract_address=0x250fa051e0945C576eed5B1e08c50679bD1e29F6&order_direction=desc&offset=0&limit=20'
       );
-      console.log(data);
+      // console.log(data);
     };
     fetchData();
   }, []);

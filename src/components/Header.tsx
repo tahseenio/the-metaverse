@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { ethers } from 'ethers';
 import NFTLogo from '../assets/logo.png';
 import { BsSearch } from 'react-icons/bs';
 import { BiSun } from 'react-icons/bi';
@@ -7,6 +8,38 @@ export const Header = () => {
   const [isOpenDrops, setIsOpenDrops] = useState<boolean>(false);
   const [isOpenMarketplace, setIsOpenMarketplace] = useState<boolean>(false);
   const [isOpenAbout, setIsOpenAbout] = useState<boolean>(false);
+
+  const [metamaskAddress, setMetamaskAddress] = useState<string>('');
+  const [metamaskBalance, setMetamaskBalance] = useState<string>('');
+
+  const fetchBalance = async (address: string) => {
+    const request2 = await window.ethereum.request({
+      method: 'eth_getBalance',
+      params: [address, 'latest'],
+    });
+    const balance = ethers.utils.formatEther(request2);
+    console.log(balance);
+    setMetamaskBalance(balance);
+  };
+
+  const connectMetamask = async () => {
+    if (window.ethereum) {
+      const request = await window.ethereum.request({
+        method: 'eth_requestAccounts',
+      });
+      setMetamaskAddress(request[0]);
+      fetchBalance(request[0]);
+    } else {
+      alert('You do nmot have Metamask Installed');
+    }
+  };
+
+  const shortenedAddress = `${metamaskAddress.slice(
+    0,
+    4
+  )}...${metamaskAddress.slice(-3)}`;
+
+  const shortenedmetamaskBalance = metamaskBalance.slice(0, 6);
 
   return (
     <nav className='header'>
@@ -64,7 +97,16 @@ export const Header = () => {
         <div className='button__toggle-theme--wrapper'>
           <BiSun className='button__toggle-theme' />
         </div>
-        <button className='button__login'>Login</button>
+        {metamaskAddress ? (
+          <div>
+            <p>{shortenedAddress}</p>
+            <p>{shortenedmetamaskBalance}</p>
+          </div>
+        ) : (
+          <button className='button__login' onClick={connectMetamask}>
+            Connect Metamask
+          </button>
+        )}
       </div>
     </nav>
   );
