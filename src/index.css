@@ -7,6 +7,10 @@
   font-family: 'Euclid Circular B Medium', sans-serif;
 }
 
+li {
+  list-style-type: none;
+}
+
 .App {
   background-color: #121212;
   min-height: 100vh;
@@ -14,10 +18,6 @@
 }
 
 .header {
-  box-shadow: rgba(255, 255, 255, 0.3) 0px 0px 8px 0px;
-}
-
-.header__container {
   color: white;
   height: 100px;
   display: flex;
@@ -26,6 +26,7 @@
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
+  padding: 0 8px;
 }
 
 .header__logo--wrapper {
@@ -71,16 +72,22 @@
   margin: 0px 16px;
 }
 
+.header__link--wrapper {
+  position: relative;
+}
+
 .header__link {
   cursor: pointer;
-  list-style-type: none;
   padding: 6px;
+  margin: 4px;
   color: rgba(255, 255, 255, 0.8);
   transition: 300ms ease;
+  border-radius: 4px;
 }
 
 .header__link:hover {
   color: rgba(255, 255, 255, 1);
+  background-color: rgb(85, 85, 85);
 }
 
 .header__buttons--wrapper {
@@ -114,7 +121,7 @@
   font-size: 1.5rem;
 }
 
-.button__buy-now {
+.button__login {
   cursor: pointer;
   background-color: #1098fc;
   color: white;
@@ -125,6 +132,33 @@
   transition: 300ms ease;
 }
 
-.button__buy-now:hover {
+.button__login:hover {
   filter: brightness(1.2);
+}
+
+.dropdown.active,
+.dropdown.active,
+.dropdown.active {
+  display: block;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  padding: 4px;
+  box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px;
+  border-radius: 4px;
+  top: 40px;
+  right: -50px;
+  left: 0;
+}
+
+.dropdown__links {
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.dropdown__links:hover {
+  background-color: rgb(85, 85, 85);
 }
