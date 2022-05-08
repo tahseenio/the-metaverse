@@ -58,8 +58,8 @@ export const Header = () => {
       <ul className='header__links'>
         <div
           className='header__link--wrapper'
-          onMouseEnter={() => setIsOpenDrops((state) => !state)}
-          onMouseLeave={() => setIsOpenDrops((state) => !state)}
+          onMouseEnter={() => setIsOpenDrops(true)}
+          onMouseLeave={() => setIsOpenDrops(false)}
         >
           <li className='header__link'>Drops</li>
           <ul className={`dropdown ${isOpenDrops && 'active'}`}>
@@ -70,8 +70,8 @@ export const Header = () => {
         </div>
         <div
           className='header__link--wrapper'
-          onMouseEnter={() => setIsOpenMarketplace((state) => !state)}
-          onMouseLeave={() => setIsOpenMarketplace((state) => !state)}
+          onMouseEnter={() => setIsOpenMarketplace(true)}
+          onMouseLeave={() => setIsOpenMarketplace(false)}
         >
           <li className='header__link'>Marketplace</li>
           <ul className={`dropdown ${isOpenMarketplace && 'active'}`}>
@@ -82,8 +82,8 @@ export const Header = () => {
         </div>
         <div
           className='header__link--wrapper'
-          onMouseEnter={() => setIsOpenAbout((state) => !state)}
-          onMouseLeave={() => setIsOpenAbout((state) => !state)}
+          onMouseEnter={() => setIsOpenAbout(true)}
+          onMouseLeave={() => setIsOpenAbout(false)}
         >
           <li className='header__link'>About</li>
           <ul className={`dropdown ${isOpenAbout && 'active'}`}>
