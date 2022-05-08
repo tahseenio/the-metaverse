@@ -44,7 +44,7 @@ export const Header = () => {
   return (
     <nav className='header'>
       <div className='header__logo--wrapper'>
-        <img src={NFTLogo} className='header__logo' />
+        <img src={NFTLogo} className='header__logo' alt='nftlogo' />
         <h1>The Metaverse</h1>
       </div>
       <div className='input--wrapper'>
