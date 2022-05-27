@@ -30,7 +30,7 @@ export const Header = () => {
       setMetamaskAddress(request[0]);
       fetchBalance(request[0]);
     } else {
-      alert('You do nmot have Metamask Installed');
+      alert('You do not have Metamask Installed');
     }
   };
 
